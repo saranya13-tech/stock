@@ -1,13 +1,5 @@
- <?php $company=DB::select('SELECT *  FROM company');
-        foreach($company as $value){
-            $com=$value->companyname;
-            
-        }?>
-
-<a href="index3.html" class="brand-link">
-      <img src="{{asset('image/company/$logo')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">{{$com}}</span>
-    </a>
+ 
+<br>
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
    
 
@@ -19,7 +11,18 @@
          
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{$com}}</a>
+          @if(Cookie::get('branch_id')!=0)
+          <?php $br=DB::select('SELECT *  FROM branch');
+        foreach($br as $value){
+            $brn=$value->branchname;
+            
+        }?>
+          <a href="#" class="d-block">{{$brn}}</a>
+          @endif
+          
+         @if(Cookie::get('branch_id')==0)
+          <a href="#" class="d-block">Minipos</a>
+          @endif
         </div>
       </div>
 
@@ -169,7 +172,26 @@
             </a>
             
           </li>
-          
+           <li class="nav-item">
+            <a href="{{route('opening_stock')}}" class="nav-link">
+              <i class="nav-icon fa fa-gift"></i>
+              <p>
+                Opening Stock
+               
+              </p>
+            </a>
+            
+          </li>
+          <li class="nav-item">
+            <a href="{{route('track_stock')}}" class="nav-link">
+              <i class="nav-icon fa fa-gift"></i>
+              <p>
+                Track stock
+               
+              </p>
+            </a>
+            
+          </li>
           @endif
         </ul>
       </nav>

@@ -7,19 +7,15 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-<?php $company=DB::select('SELECT *  FROM company');
-        foreach($company as $value){
-            $com=$value->companyname;
-            
-        }?>
-<title>{{ $com }}</title>
+
+<title>Minipos</title>
     
     <link rel="stylesheet" href="{{ asset('css/admin.min.css') }}">
 </head>
 <body class="hold-transition skin-purple login-page"> 
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('admin') }}">{{ $com }}</a>
+            <a href="{{ url('admin') }}">Minipos</a>
         </div>
         <!-- /.login-logo -->
         @include('layouts.errors-and-messages')

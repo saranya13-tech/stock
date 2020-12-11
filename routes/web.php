@@ -21,9 +21,13 @@ use Illuminate\Support\Facades\Route;
     
         Route::get('admin/products', 'ProductController@index')->name('products');
          Route::get('admin/stock', 'ProductController@stock')->name('stock');
+          Route::get('admin/opening_stock', 'ProductController@opening_stock')->name('opening_stock');
+          Route::get('admin/track_stock', 'ProductController@track_stock')->name('track_stock');
        Route::get('admin/products/create', 'ProductController@create')->name('products.create');
        Route::post('admin/products/update', 'ProductController@update')->name('products.update');
        Route::post('admin/products/update1', 'ProductController@update1')->name('update1');
+       Route::post('admin/track_stock', 'ProductController@track')->name('track');
+         Route::post('admin/products/update2', 'ProductController@update2')->name('update2');
         Route::post('admin/products/store', 'ProductController@store')->name('products.store');
         Route::post('admin/products/destroy', 'ProductController@destroy')->name('products.destroy');
         Route::get('admin/products/edit/{id}', 'ProductController@edit')->name('products.edit');

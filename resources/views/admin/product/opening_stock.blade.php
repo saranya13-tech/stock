@@ -36,18 +36,18 @@
 
         var item = v[0];
          
-       var stock  = v[3];
-         var type  = v[4];
+       var stock  = v[2];
+        
 
             
             $.ajax({
               type: "POST",
-              url: "{{ route('update1') }}",
+              url: "{{ route('update2') }}",
               data: {
                         "_token": token,
                         "item": item,
                         "stock": stock,
-                           "type": type,
+                          
                         },
                    
                     success: function (data) {
@@ -63,7 +63,7 @@
    data= <?php echo  json_encode($products)?>;
    console.log(data);
 var table1= jexcel(document.getElementById('spreadsheet'), {
-    minDimensions: [4,10],
+    minDimensions: [3,10],
     data:data,
     tableWidth: "100%",
     search:true,
@@ -87,21 +87,9 @@ var table1= jexcel(document.getElementById('spreadsheet'), {
         },
         
         {
-            type: 'text',
+            type: 'number',
             title:'opening stock',
             width:90,
-              readOnly:true,
-        },{
-            type: 'number',
-            title:'Balance stock',
-            width:90,
-             
-        },
-          {
-            type:'dropdown',
-            title:'Type',
-            width:'200',
-            source:['Purchase','Sales_return','Dead_Stock'],
             
         },
       
