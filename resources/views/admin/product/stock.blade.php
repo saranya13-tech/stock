@@ -37,7 +37,7 @@
                 
 </section>
 
- <p style="margin-left: 20px"><button class="btn btn-success btn-sm" id='download'>Export  as CSV</button> <button  onclick="location.reload()"type="submit" class="btn btn-primary">Create</button></p>
+ <p style="margin-left: 20px"><button class="btn btn-success btn-sm" id='download'>Export  as CSV</button> <button  onclick="location.reload()"type="submit" class="btn btn-primary">Submit</button></p>
 
  <br>
   <script>

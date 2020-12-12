@@ -200,7 +200,7 @@ return json_encode($d);
           'type'=>'opening_stock');
          DB::table('stock')->insert($d);
          
-        DB::update('update itemmaster set opening_stock='.$b.' where item_id='.$item.'');
+        DB::update('update itemmaster set opening_stock='.$b.',balance_stock='.$b.' where item_id='.$item.'');
         
 return json_encode($d);
       //   return redirect()->route('stock')
