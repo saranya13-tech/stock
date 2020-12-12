@@ -16,7 +16,19 @@
                    
                        <h2>Stock</h2>
                        
-                       
+                      
+                          <div class="form-group col-md-6">
+                 <label for="categories">Type <span class="text-danger">*</span></label>
+                    <select name="type" id="type" class="form-control select2"  required="">
+                                                     
+                      <option  value="Purchase">Purchase</option>
+                      <option  value="Sales_return">Sales Return</option>
+                      <option  value="Dead_Stock">Dead Stock</option>
+                                                            
+                                                            
+                                                           
+                                                    </select>
+                                            </div> 
                         
        
       
@@ -25,20 +37,21 @@
                 
 </section>
 
- <p style="margin-left: 20px"><button class="btn btn-success btn-sm" id='download'>Export  as CSV</button></p>
+ <p style="margin-left: 20px"><button class="btn btn-success btn-sm" id='download'>Export  as CSV</button> <button  onclick="location.reload()"type="submit" class="btn btn-primary">Create</button></p>
+
  <br>
   <script>
        var changed = function(instance, cell, x, y, value) {
-       var token= document.querySelector('input[name=_token]').value;  
+       var token= document.querySelector('input[name=_token]').value;
+         var type  = document.getElementById('type').value;  
        var cellName = jexcel.getColumnNameFromId([x,y]);
        var cellName1 = jexcel.getColumnNameFromId([x-1,y]);
        var v= table1.getRowData(y);
 
         var item = v[0];
          
-       var stock  = v[3];
-         var type  = v[4];
-
+       var stock  = v[4];
+       
             
             $.ajax({
               type: "POST",
@@ -53,7 +66,7 @@
                     success: function (data) {
                         
                    
-              location.reload();
+            
                        
                     }
 
@@ -95,14 +108,13 @@ var table1= jexcel(document.getElementById('spreadsheet'), {
             type: 'number',
             title:'Balance stock',
             width:90,
-             
+              readOnly:true,
         },
           {
-            type:'dropdown',
-            title:'Type',
-            width:'200',
-            source:['Purchase','Sales_return','Dead_Stock'],
-            
+            type:'number',
+            title:'Add stock',
+            width:200,
+             
         },
       
      ],
