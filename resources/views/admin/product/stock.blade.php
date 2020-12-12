@@ -24,6 +24,7 @@
                       <option  value="Purchase">Purchase</option>
                       <option  value="Sales_return">Sales Return</option>
                       <option  value="Dead_Stock">Dead Stock</option>
+                       <option  value="decrement">Stock Decrement</option>
                                                             
                                                             
                                                            

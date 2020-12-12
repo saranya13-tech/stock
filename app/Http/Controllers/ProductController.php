@@ -161,6 +161,10 @@ class ProductController extends Controller
                             
                             $b = $t->balance_stock - number_format($balance_stock);
                           }
+                           else if($type=="decrement"){
+                            
+                            $b = $t->balance_stock - number_format($balance_stock);
+                          }
                         }
            $d=array(
           'item_id'=>$item,
